@@ -1579,44 +1579,41 @@
     </div>
 <!-- YouTube Video Embed -->
 <div class="video-container">
-  <iframe
-    id="background-music"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/vTyJmM_nPxY?enablejsapi=1&start=45&mute=1"
-    frameborder="0"
-    allow="autoplay; encrypted-media"  <!-- Added encrypted-media -->
-    allowfullscreen
-  ></iframe>
-</div>
-
-<script>
-  function onYouTubeIframeAPIReady() {
-    const player = new YT.Player("background-music", {
-      events: {
-        onReady: function (event) {
-          document.body.addEventListener("click", function playVideo() {
-            player.playVideo();
-            player.unMute();  // Unmute to allow sound after initial click
-            document.body.removeEventListener("click", playVideo);
-          });
+    <iframe
+      id="background-music"
+      width="0"
+      height="0"
+      src="https://www.youtube.com/embed/vTyJmM_nPxY?enablejsapi=1&start=45&mute=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media"  <!-- Allows autoplay and encrypted media -->
+      allowfullscreen
+    ></iframe>
+  </div>
+  
+  <script>
+    function onYouTubeIframeAPIReady() {
+      const player = new YT.Player("background-music", {
+        events: {
+          onReady: function (event) {
+            document.body.addEventListener("click", function playVideo() {
+              player.playVideo();
+              player.unMute();  // Unmute to allow sound after initial click
+              document.body.removeEventListener("click", playVideo);
+            });
+          },
         },
-      },
-    });
-  }
-
-  function bloomFlower() {
-    document.body.classList.remove("not-loaded");
-    onYouTubeIframeAPIReady();
-  }
-
-  // Load YouTube API Script
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(tag);
-
-  window.onload = bloomFlower;
-</script>
-
-</body>
-</html>
+      });
+    }
+  
+    function bloomFlower() {
+      document.body.classList.remove("not-loaded");
+      onYouTubeIframeAPIReady();
+    }
+  
+    // Load YouTube API Script
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  
+    window.onload = bloomFlower;
+  </script>
