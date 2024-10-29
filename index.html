@@ -1265,7 +1265,7 @@
     </style>
   </head>
 
-  <body class="not-loaded">
+  <body class="not-loaded" onclick="playAudio()">
     <h1 class="title">FOR YOU MY DINO!</h1>
     <div class="night"></div>
     <div class="flowers">
@@ -1577,44 +1577,31 @@
         </div>
       </div>
     </div>
-<!-- YouTube Video Embed -->
-<!-- SoundCloud Music Embed -->
-<!-- SoundCloud Music Embed -->
-<div class="audio-container">
-    <iframe 
-      width="0" 
-      height="0" 
-      scrolling="no" 
-      frameborder="no" 
-      allow="autoplay" 
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/120899271&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false">
-    </iframe>
-  </div>
-  
-  <script>
-    function onYouTubeIframeAPIReady() {
-      const player = new YT.Player("background-music", {
-        events: {
-          onReady: function (event) {
-            document.body.addEventListener("click", function playVideo() {
-              player.playVideo();
-              player.unMute();  // Unmute to allow sound after initial click
-              document.body.removeEventListener("click", playVideo);
+<!-- Audio Element -->
+<audio id="audio-player">
+    <source src="file:///C:/Users/Ryzen 5/Downloads/zyn/wimy.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+     // Function to remove class and play the audio
+     function bloomFlower() {
+            document.body.classList.remove("not-loaded");
+        }
+
+        // Call bloomFlower when the window loads
+        window.onload = bloomFlower;
+
+        // Function to play audio
+        function playAudio() {
+            var audioPlayer = document.getElementById("audio-player");
+            audioPlayer.play().catch(function(error) {
+                console.error("Autoplay was prevented. Please interact with the page to allow audio playback.");
             });
-          },
-        },
-      });
-    }
-  
-    function bloomFlower() {
-      document.body.classList.remove("not-loaded");
-      onYouTubeIframeAPIReady();
-    }
-  
-    // Load YouTube API Script
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-  
-    window.onload = bloomFlower;
-  </script>
+        }
+</script>
+
+
+
+</body>
+</html>
