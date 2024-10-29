@@ -1585,7 +1585,7 @@
 <!-- Audio Element -->
  <!-- Audio Element -->
     <audio id="audio-player">
-        <source src="https:///jersyyy.github.io/click-me/wimy.mp3&start=45" type="audio/mpeg">
+        <source src="https:///jersyyy.github.io/click-me/wimy.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -1601,6 +1601,9 @@
         // Function to play audio
         function playAudio() {
             var audioPlayer = document.getElementById("audio-player");
+           // Set the start time to the chorus part (in seconds)
+        audioPlayer.currentTime = 45; // replace 60 with the actual time in seconds for the chorus start
+
             audioPlayer.play().catch(function(error) {
                 console.error("Autoplay was prevented. Please interact with the page to allow audio playback.");
             });
