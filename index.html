@@ -28,6 +28,9 @@
         background-color: var(--dark-color);
         overflow: hidden;
         perspective: 1000px;
+        cursor: pointer;
+            text-align: center;
+            margin-top: 50px;
       }
       
       .title {
@@ -1266,7 +1269,7 @@
   </head>
 
   <body class="not-loaded" onclick="playAudio()">
-    <h1 class="title">FOR YOU MY DINO!</h1>
+    <h1 class="title">For you my Dino!</h1>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -1578,14 +1581,15 @@
       </div>
     </div>
 <!-- Audio Element -->
-<audio id="audio-player">
-    <source src="https://jersyyy.github.io/click-me/wimy.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+ <!-- Audio Element -->
+    <audio id="audio-player">
+        <source src="https://jersyyy.github.io/click-me/wimy.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-<script>
-     // Function to remove class and play the audio
-     function bloomFlower() {
+    <script>
+        // Function to remove class and play the audio
+        function bloomFlower() {
             document.body.classList.remove("not-loaded");
         }
 
@@ -1599,8 +1603,7 @@
                 console.error("Autoplay was prevented. Please interact with the page to allow audio playback.");
             });
         }
-</script>
-
+    </script>
 
 
 </body>
